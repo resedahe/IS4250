@@ -1,0 +1,32 @@
+---
+title: "IS4250_tutorial1"
+author: "He Zhuyuan"
+date: "22 Jan 2016"
+output: md_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+data(cars)
+library(ggplot2)
+ggplot(cars,aes(speed,dist))
+p<-ggplot(cars,aes(speed,dist))
+p
+p+geom_point()
+dplyr::filter(cars, speed==4)
+ speed dist
+1     4    2
+2     4   10
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
