@@ -1,0 +1,84 @@
+---
+title: "Simulation"
+author: "Wang Wenzhu"
+date: "25 March 2016"
+output: md_document
+---
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+cryingPrior1 <- data.frame(No=c(92,45),Yes=c(8,1))
+rownames(cryingPrior1) <- c("NoAD", "PureD")
+fisher.test(cryingPrior1)
+
+cryingPrior2 <- data.frame(No=c(92,67),Yes=c(8,12))
+rownames(cryingPrior2) <- c("NoAD", "PureA")
+fisher.test(cryingPrior2)
+
+cryingPrior3 <- data.frame(No=c(92,53),Yes=c(8,8))
+rownames(cryingPrior3) <- c("NoAD", "ComorbidAD")
+fisher.test(cryingPrior3)
+
+cryingDuring1 <- data.frame(No=c(85,41),Yes=c(6,1))
+rownames(cryingDuring1) <- c("NoAD", "PureD")
+fisher.test(cryingDuring1)
+
+cryingDuring2 <- data.frame(No=c(85,70),Yes=c(6,14))
+rownames(cryingDuring2) <- c("NoAD", "PureA")
+fisher.test(cryingDuring2)
+
+cryingDuring3 <- data.frame(No=c(85,61),Yes=c(6,8))
+rownames(cryingDuring3) <- c("NoAD", "ComorbidAD")
+fisher.test(cryingDuring3)
+
+cryingAfter2 <- data.frame(No=c(77,75),Yes=c(6,9))
+rownames(cryingAfter2) <- c("NoAD", "PureA")
+fisher.test(cryingAfter2)
+
+cryingAfter3 <- data.frame(No=c(77,72),Yes=c(6,14))
+rownames(cryingAfter3) <- c("NoAD", "ComorbidAD")
+fisher.test(cryingAfter3)
+
+
+```
+
+
+
+```{r}
+feedingPrior1 <- data.frame(No=c(73,33),Yes=c(27,13))
+rownames(feedingPrior1) <- c("NoAD", "PureD")
+fisher.test(feedingPrior1)
+
+feedingPrior2 <- data.frame(No=c(73,47),Yes=c(27,32))
+rownames(feedingPrior2) <- c("NoAD", "PureA")
+fisher.test(feedingPrior2)
+
+feedingPrior3 <- data.frame(No=c(73,29),Yes=c(27,32))
+rownames(feedingPrior3) <- c("NoAD", "ComorbidAD")
+fisher.test(feedingPrior3)
+
+feedingDuring1 <- data.frame(No=c(67,30),Yes=c(24,12))
+rownames(feedingDuring1) <- c("NoAD", "PureD")
+fisher.test(feedingDuring1)
+
+feedingDuring2 <- data.frame(No=c(67,50),Yes=c(24,34))
+rownames(feedingDuring2) <- c("NoAD", "PureA")
+fisher.test(feedingDuring2)
+
+feedingDuring3 <- data.frame(No=c(67,35),Yes=c(24,34))
+rownames(feedingDuring3) <- c("NoAD", "ComorbidAD")
+fisher.test(feedingDuring3)
+```
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
