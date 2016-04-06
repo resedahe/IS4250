@@ -1,0 +1,74 @@
+---
+title: "IS4250_simulationTableCode"
+author: "He Zhuyuan"
+date: "6 Apr 2016"
+output: md_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+#1: No regulation problem: 55.2%
+#2: Excessive crying only (E): 2.8%
+#3: Sleeping problem only (S): 5.3%
+#4: Feeding problem only (F): 24.5%
+#5: E&S: 0.3%
+#6: E&F: 5.3%
+#7: S&F: 4.9%
+#8: E&S&F: 1.7%
+
+n.sample = 100000
+simulation = sample(1:8, 
+                    size = n.sample, 
+                    replace = TRUE, 
+                    prob = c(0.552, 0.028, 0.053, 0.245, 0.003, 0.053, 0.049, 0.0017))
+result = table(simulation)/n.sample
+circle.1 = sum(result[c(2, 5, 6, 8)])*100
+circle.2 = sum(result[c(3, 5, 7, 8)])*100
+circle.3 = sum(result[c(4, 6, 7, 8)])*100
+
+library(ggplot2)
+x = c(0.0358, 0.0345 ,0.05)
+y = c(0.00135, 0.0009, 0.001)
+size = c(circle.1, circle.2, circle.3)
+label=c("E","F","S")
+data = data.frame(x, y ,size)
+
+#Simulation Result
+> result 
+simulation
+      1       2       3       4       5       6       7       8 
+0.55973 0.02798 0.05368 0.24920 0.00294 0.05436 0.05040 0.00171 
+
+#Based on simulation result we use bubble plot for graph
+ggplot(data = data, 
+       aes(x = x, y = y, size = size, label = label), guide = FALSE) + 
+  geom_jitter(aes(size = size, colour = size, alpha=.02))+ scale_size_area(max_size = 78)+
+  scale_x_continuous(limits=c(0,0.1))+
+  scale_y_continuous(limits=c(0,0.0025))+
+  annotate("text", x = 0.033, y=0.0014, label = "2.9%")+
+  annotate("text", x = 0.04, y=0.00136, label = "5.4%")+
+  annotate("text", x = 0.038, y=0.0011, label = "1.7%")+
+  annotate("text", x = 0.03, y=0.0008, label = "5.4%")+
+  annotate("text", x = 0.04, y=0.00078, label = "4.9%")+
+  annotate("text", x = 0.032, y=0.00115, label = "0.3%")+
+  annotate("text", x = 0.05, y=0.0009, label = "24.7%")+
+  annotate("text", x = 0.05, y=0.0003, label = "No regulation problem 56%")+
+  geom_text(size=2.5)+ theme(axis.line=element_blank(),axis.text.x=element_blank(),
+                             axis.text.y=element_blank(),axis.ticks=element_blank(),
+                             axis.title.x=element_blank(),
+                             axis.title.y=element_blank(),legend.position="none",
+                             panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),                             panel.grid.minor=element_blank(),plot.background=element_blank())
+
+
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

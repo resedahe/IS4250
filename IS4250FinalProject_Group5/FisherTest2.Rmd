@@ -1,0 +1,202 @@
+---
+title: "Simulation"
+author: "He Zhuyuan"
+date: "25 March 2016"
+output: md_document
+---
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+> feedingWholePeriod <- data.frame(No=c(62,26),Yes=c(21,7))
+> rownames(feedingWholePeriod) <- c("NoAD", "PureD")
+> fisher.test(feedingWholePeriod)
+
+	Fisher's Exact Test for Count Data
+
+data:  feedingWholePeriod
+p-value = 0.8107
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.2540864 2.2546693
+sample estimates:
+odds ratio 
+ 0.7964063 
+
+>feedingWholePeriod <-data.frame(No=c(62,52),Yes=c(21,32))
+> rownames(feedingWholePeriod) <- c("NoAD", "PureA")
+> fisher.test(feedingWholePeriod)
+
+	Fisher's Exact Test for Count Data
+
+data:  feedingWholePeriod
+p-value = 0.0964
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.8914057 3.7344165
+sample estimates:
+odds ratio 
+  1.810343 
+
+> feedingWholePeriod <- data.frame(No=c(62,42),Yes=c(21,44))
+> rownames(feedingWholePeriod) <- c("NoAD", "ComorbidAD")
+> fisher.test(feedingWholePeriod)
+
+	Fisher's Exact Test for Count Data
+
+data:  feedingWholePeriod
+p-value = 0.0008353
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 1.539687 6.273941
+sample estimates:
+odds ratio 
+  3.071511 
+
+> sleepingPrior <- data.frame(No=c(91,42),Yes=c(9,4))
+> rownames(sleepingPrior) <- c("NoAD", "PureD")
+> fisher.test(sleepingPrior)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingPrior
+p-value = 1
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.2049577 3.6979597
+sample estimates:
+odds ratio 
+ 0.9632089 
+
+> sleepingPrior <- data.frame(No=c(91,72),Yes=c(9,7))
+> rownames(sleepingPrior) <- c("NoAD", "PureA")
+> fisher.test(sleepingPrior)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingPrior
+p-value = 1
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.2957264 3.1310071
+sample estimates:
+odds ratio 
+ 0.9831172 
+
+> sleepingPrior <- data.frame(No=c(91,46),Yes=c(9,15))
+> rownames(sleepingPrior) <- c("NoAD", "comorbidAD")
+> fisher.test(sleepingPrior)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingPrior
+p-value = 0.0111
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 1.232764 9.171333
+sample estimates:
+odds ratio 
+  3.270781 
+
+> sleepingPrior_During <- data.frame(No=c(82,38),Yes=c(9,4))
+> rownames(sleepingPrior_During) <- c("NoAD","PureD")
+> fisher.test(sleepingPrior_During)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingPrior_During
+p-value = 1
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.2029545 3.7102507
+sample estimates:
+odds ratio 
+ 0.9593618 
+
+> sleepingPrior_During <- data.frame(No=c(82,77),Yes=c(9,7))
+> rownames(sleepingPrior_During) <- c("NoAD","PureA")
+> fisher.test(sleepingPrior_During)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingPrior_During
+p-value = 0.7969
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.2492214 2.6418052
+sample estimates:
+odds ratio 
+ 0.8291722 
+
+> sleepingPrior_During <- data.frame(No=c(82,54),Yes=c(9,15))
+> rownames(sleepingPrior_During) <- c("NoAD","ComorbidAD")
+> fisher.test(sleepingPrior_During)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingPrior_During
+p-value = 0.04541
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.952501 7.020307
+sample estimates:
+odds ratio 
+  2.515815 
+
+> sleepingWholePeriod <- data.frame(No=c(74,31),Yes=c(9,2))
+> rownames(sleepingWholePeriod) <- c("NoAD","PureD")
+> fisher.test(sleepingWholePeriod)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingWholePeriod
+p-value = 0.7262
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.05311419 2.79211918
+sample estimates:
+odds ratio 
+  0.533031 
+
+> sleepingWholePeriod <- data.frame(No=c(74,79),Yes=c(9,5))
+> rownames(sleepingWholePeriod) <- c("NoAD","PureA")
+> fisher.test(sleepingWholePeriod)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingWholePeriod
+p-value = 0.279
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.1312477 1.8308458
+sample estimates:
+odds ratio 
+ 0.5224022 
+
+> sleepingWholePeriod <- data.frame(No=c(74,67),Yes=c(9,19))
+> rownames(sleepingWholePeriod) <- c("NoAD","comorbidAD")
+> fisher.test(sleepingWholePeriod)
+
+	Fisher's Exact Test for Count Data
+
+data:  sleepingWholePeriod
+p-value = 0.06259
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.9243975 6.2455659
+sample estimates:
+odds ratio 
+  2.320229 
+
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
